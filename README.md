@@ -9,25 +9,6 @@ Using the client
 ================
 
 The `github.com/psforne/netbox-client-go/netbox` package has some convenience functions for creating clients with the most common
-configurations you are likely to need while connecting to NetBox. `NewNetboxAt` allows you to specify a hostname
-(including port, if you need it), and `NewNetboxWithAPIKey` allows you to specify both a hostname:port and API token.
-```golang
-import (
-    "github.com/psforne/netbox-client-go/netbox"
-)
-...
-    c := netbox.NewNetboxAt("your.netbox.host:8000")
-    // OR
-    c := netbox.NewNetboxWithAPIKey("your.netbox.host:8000", "your_netbox_token")
-```
-
-If you specify the API key, you do not need to pass an additional `authInfo` to operations that need authentication, and
-can pass `nil`:
-```golang
-    c.Dcim.DcimDeviceTypesCreate(createRequest, nil)
-```
-
-If you connect to netbox via HTTPS you have to create an HTTPS configured transport:
 ```golang
 package main
 
